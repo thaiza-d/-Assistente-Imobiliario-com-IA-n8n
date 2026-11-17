@@ -329,13 +329,29 @@ Quando o cliente pergunta algo sem relação com imóveis, ou com dados que não
    - Google Sheets OAuth2 (nós *buscar_imoveis* e *registrar_lead*)
    - Google Gemini (PaLM) API (nó *Google Gemini Chat Model*)
 
-4. **Aponte os nós de planilha para as suas planilhas**
+4. **Segurança** 
+   As credenciais de Gmail, Google Sheets e Gemini devem ser configuradas individualmente na instância do n8n. Nenhuma chave de API ou credencial é compartilhada neste repositório.
+
+5. **Aponte os nós de planilha para as suas planilhas**
    Nos nós `buscar_imoveis` e `registrar_lead`, selecione o documento e a aba corretos.
 
-5. **Teste**
+6. **Teste**
    Envie um e-mail para a conta Gmail conectada e execute o workflow manualmente (*Test workflow*) ou ative-o (*Active*).
 
 > 💡 Os dados da imobiliária (nome, telefone, regiões, faixas de preço) estão no **System Message** do nó AI Agent. Adapte para o seu caso.
+
+---
+
+## 📈 Resultados obtidos
+
+O workflow foi testado com diferentes cenários de atendimento:
+
+- Busca de imóveis conforme as preferências do cliente.
+- Respostas contextualizadas com informações do catálogo.
+- Registro de novos leads no Google Sheets.
+- Atualização de leads existentes sem duplicação.
+- Manutenção do contexto em conversas na mesma thread.
+- Identificação de solicitações fora do escopo.
 
 ---
 
