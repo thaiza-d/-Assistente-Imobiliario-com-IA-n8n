@@ -159,6 +159,7 @@ Os campos são preenchidos pelo próprio agente a partir da conversa (via `$from
 
 <!-- 📸 PRINT: configuração do nó registrar_lead (mapeamento de colunas) -->
 ![registrar_lead - configuração parte 1](images/registrar-lead1.png)
+
 ![registrar_lead - configuração parte 2](images/registrar-lead2.png)
 
 <!-- 📸 PRINT: a planilha de leads com algumas linhas preenchidas -->
@@ -260,6 +261,9 @@ O system prompt é organizado em blocos, para deixar o comportamento previsível
 
 <!-- 📸 PRINT: linha criada na planilha de leads -->
 ![Cenário 1 - lead registrado](images/lead.png)
+
+![Cenário 1 - lead registrado](images/lead2.png)
+
 ---
 
 ### Cenário 2: cliente recorrente (atualização de lead)
@@ -272,11 +276,13 @@ Mesmo cliente responde na mesma thread, mudando o orçamento. O agente usa a mem
 <!-- 📸 PRINT: salvando as informações na planilha de leads -->
 ![Cenário 2 - lead atualizado](images/atualizacao-lead1.png)
 
+![Cenário 2 - lead atualizado](images/atualizacao-lead2.png)
+
 <!-- 📸 PRINT: segundo e-mail do cliente na mesma thread e a resposta do Ted sugerindo agendamento via WhatsApp  -->
 ![Cenário 2 - e-mail de follow-up](images/email-atualizacao2.png)
 
 <!-- 📸 PRINT: planilha de leads mostrando a MESMA linha atualizada -->
-![Cenário 2 - lead atualizado](images/atualizacao-lead2.png)
+![Cenário 2 - lead atualizado](images/atualizacao-lead3.png)
 
 ---
 
