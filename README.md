@@ -246,6 +246,7 @@ O system prompt é organizado em blocos, para deixar o comportamento previsível
 **E-mail enviado pelo cliente:**
 <!-- 📸 PRINT: e--mail enviado pelo cliente e resposta da agente -->
 ![Cenário 1 - e-mail recebido](images/teste1.png)
+
 ![Cenário 1 - agente consultando o catálogo](images/teste2.png)
 
 <!-- 📸 PRINT: Mesmo cliente responde na mesma thread, mudando o orçamento. O agente usa a memória da conversa e **atualiza** a linha existente, sem criar uma nova. -->
@@ -253,6 +254,7 @@ O system prompt é organizado em blocos, para deixar o comportamento previsível
 
 <!-- 📸 PRINT: resposta do Ted recebida pelo cliente -->
 ![Cenário 1 - resposta enviada](images/teste4.png)
+
 ![Cenário 1 - resposta enviada](images/teste5.png)
 
 
@@ -264,43 +266,35 @@ O system prompt é organizado em blocos, para deixar o comportamento previsível
 
 Mesmo cliente responde na mesma thread, mudando o orçamento. O agente usa a memória da conversa e **atualiza** a linha existente, sem criar uma nova.
 
-```
-Gostei da segunda opção! Posso subir um pouco o orçamento, até R$ 4.500.
-Como funciona para agendar uma visita?
-```
+<!-- 📸 PRINT: primerio e-mail do cliente com resposta do Ted -->
+![Cenário 2 - e-mail de follow-up](images/email-atualizacao.png)
 
-<!-- 📸 PRINT: segundo e-mail do cliente na mesma thread -->
-![Cenário 2 - e-mail de follow-up](docs/images/ex2-01-email-followup.png)
+<!-- 📸 PRINT: salvando as informações na planilha de leads -->
+![Cenário 2 - lead atualizado](images/atualizacao-lead1.png)
 
-<!-- 📸 PRINT: resposta do Ted sugerindo agendamento via WhatsApp -->
-![Cenário 2 - resposta do agente](docs/images/ex2-02-resposta-ted.png)
+<!-- 📸 PRINT: segundo e-mail do cliente na mesma thread e a resposta do Ted sugerindo agendamento via WhatsApp  -->
+![Cenário 2 - e-mail de follow-up](images/email-atualizacao2.png)
 
-<!-- 📸 PRINT: planilha de leads mostrando a MESMA linha atualizada (orçamento e próximo passo) -->
-![Cenário 2 - lead atualizado](docs/images/ex2-03-lead-atualizado.png)
+<!-- 📸 PRINT: planilha de leads mostrando a MESMA linha atualizada -->
+![Cenário 2 - lead atualizado](images/atualizacao-lead2.png)
 
 ---
 
 ### Cenário 3: pergunta genérica (sem registro de lead)
 
-```
-Assunto: Dúvida
-
-Qual o horário de atendimento de vocês?
-```
-
-O agente responde a dúvida, mas **não** registra lead, já que não há interesse real em um imóvel.
-
 <!-- 📸 PRINT: resposta do agente e planilha de leads sem nova linha -->
-![Cenário 3 - sem registro de lead](docs/images/ex3-01-sem-lead.png)
+![Cenário 3 - sem registro de lead](images/pergunta-generica.png)
 
 ---
 
 ### Cenário 4: pedido fora do escopo
 
-Quando o cliente pergunta algo sem relação com imóveis, o agente redireciona para o foco do negócio.
+Quando o cliente pergunta algo sem relação com imóveis, ou com dados que não correspondem com a empresa em questão, o agente orienta e redireciona para o foco do negócio.
 
 <!-- 📸 PRINT: e-mail fora de escopo + resposta redirecionando -->
-![Cenário 4 - fora do escopo](docs/images/ex4-01-fora-do-escopo.png)
+![Cenário 4 - fora do escopo](images/fora-do-escopo1.png)
+
+![Cenário 4 - fora do escopo](images/fora-do-escopo2.png)
 
 ---
 
@@ -338,15 +332,15 @@ Quando o cliente pergunta algo sem relação com imóveis, o agente redireciona 
 
 ## ⚠️ Limitações e próximos passos
 
-Este projeto é uma **simulação** de portfólio. Alguns pontos para evoluir antes de usar em produção:
+Este projeto é uma **simulação desenvolvida para fins de portfólio**. Embora o fluxo execute as funcionalidades propostas, existem melhorias que podem torná-lo mais robusto e adequado para um ambiente de produção.
 
-- [ ] **Filtro no Gmail Trigger**: hoje não há filtros, então o fluxo reage a qualquer e-mail recebido. Filtrar por rótulo, remetente ou assunto evitaria respostas a newsletters e spam.
-- [ ] **Revisão humana**: incluir uma etapa de aprovação (ou rascunho em vez de envio direto) para casos sensíveis.
-- [ ] **Tratamento de erros**: adicionar um fluxo de erro (*Error Trigger*) para avisar quando uma execução falhar.
-- [ ] **Campo E-mail do lead**: o valor vem do cabeçalho `from`, que pode incluir o nome junto com o endereço. Normalizar para guardar só o endereço deixaria a chave de busca mais confiável.
-- [ ] **Agendamento automático**: integrar com Google Calendar para marcar visitas direto pelo e-mail.
-- [ ] **Notificação para corretores**: avisar um humano (Slack/WhatsApp) quando um lead quente for registrado.
-- [ ] **Escalonamento para humano**: detectar reclamações ou casos complexos e encaminhar para atendimento humano.
+- [ ] **Filtros no Gmail Trigger:** implementar filtros por remetente, assunto ou marcador para evitar o processamento de mensagens irrelevantes, como newsletters e spam.
+- [ ] **Revisão humana:** adicionar uma etapa de aprovação antes do envio de respostas, especialmente em situações que exigem atenção ou validação.
+- [ ] **Tratamento de erros:** implementar um fluxo com *Error Trigger* para identificar falhas de execução e notificar os responsáveis.
+- [ ] **Normalização do e-mail:** extrair somente o endereço de e-mail do cabeçalho `From`, garantindo maior consistência na identificação e busca de leads.
+- [ ] **Agendamento automático:** integrar com o Google Calendar para facilitar o agendamento de visitas a partir das conversas.
+- [ ] **Notificações para corretores:** implementar notificações via Slack ou WhatsApp quando um lead com alto potencial for identificado.
+- [ ] **Escalonamento para atendimento humano:** identificar reclamações, solicitações complexas ou situações que exijam intervenção humana e encaminhá-las à equipe responsável.
 
 ---
 
