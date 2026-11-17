@@ -163,7 +163,10 @@ Os campos são preenchidos pelo próprio agente a partir da conversa (via `$from
 ![registrar_lead - configuração parte 2](images/registrar-lead2.png)
 
 <!-- 📸 PRINT: a planilha de leads com algumas linhas preenchidas -->
-![Planilha de leads](images/planilha-leads.png)
+![Planilha de leads](images/lead.png)
+
+![Planilha de leads](images/lead2.png)
+
 
 ---
 
